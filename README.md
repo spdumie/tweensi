@@ -1,10 +1,10 @@
 # tweensi
-Javascript Light weight FPS based Tween Engine 
+Javascript light weight FPS based Tween Engine 
 
 I am a developer, working in the advertising world for a pretty long time.
 Once Flash conquered interactive web, TweenLite was the most famous tool for animation and it was so light so it can be used even for 30kb or 50kb banners.
 
-But after Javascript version TweenLite & TweenMax was developed, many designers & developers were so happy that they don’t need to learn new syntax again, but the convenience has the price.
+But after Javascript version TweenLite & TweenMax was developed, many designers & developers were so happy that they don’t need to look up for the new syntax documentation page again, but the convenience has the price.
 
 Minified TweenLite is 22k, and it needs 5k easing pack to add nice movement.
 TweenMax is 108k, some CSS plug-ins are near 40k.
@@ -19,16 +19,16 @@ How to use:
 
 ```javascript
 Tweensi.to($$("box"), 1, {autoAlpha:0, left:"500px", top:"300px", rotate:"360deg"});
-
+// or
 Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)", rotate:"random(360deg)"});
 
 ```
+- Tweensi.to(object, time, propertyObject);
 - $$(“idName”) is easy & simple element ID referring tool.
 - No variable assign or class assign needed, just start with “Tweensi.to” or “Tweens.from”, etc.
 - But you can assign one to control it later. (cancel etc.)
 - CSS3 properties can be used directly, such as rotate, scale, translate, etc.
-- “random(500px)” is equal to (500 * Math.random())+”px” for interesting test resolute.
-
+- “random(500px)” is equal to (500 * Math.random())+”px” for interesting test results.
 
 
 How to cancel:
@@ -42,12 +42,50 @@ setTimeout(function(){
 }, 3000);
 
 // or
-var tween = Tweensi.to($$("box"), 1, { left:"400px", top:"200px", rotate:"180deg"});
+var tween = Tweensi.to($$("box"), 1, { delay:1, left:"400px", top:"200px", rotate:"180deg"});
 setTimeout(function(){
 	tween.stopTw();
-}, 500);
+}, 1500);
 	
 ```
+- Tweensi.killTweensOf($$("box")) will stop every property that the ID "box" element has.
+- Assigned var tween has .stopTw() to do the same, because Tweensi.to returns a Tweensi class.
+
+
+Supported CSS properties
+--------------
+```javascript
+	vKeys.evs = ["onStart", "onStartParams", "onComplete", "onCompleteParams", "onUpdate", "onUpdateParams", "onRepeat", "onRepeatParams"];
+		vKeys.css = ["left", "top", "width", "height", "opacity"]; 
+		vKeys.trans = [
+		"rotate", "rotateX", "rotateY", "rotateZ",
+		"scale", "scaleX", "scaleY", "scaleZ", "scale3d",
+		"translate", "translateX", "translateY", "translateZ", "translate3d",
+		"skew", "skewX", "skewY",
+		"matrix", "matrix3d"
+		];
+		vKeys.skip = ["yoyo", "repeat", "repeatDelay", "autoAlpha"];
+
+```
+- CSS only has "left", "top", "width", "height", "opacity", since this is animation engine. other properties can be added here.
+- CSS3 Transform properties are almost all of them, using transform properties are recommended and it will start hardware acceleration on most of web browsers.
+- AutoAlpha is supported, it turns display "none" and "block", in the beginning or at the end of it.
+- you can tween any object, simple as {a:100, b:200}, "a" or/and "b" property, even they are not registered as vKeys, as long as the values are number.
+- "delay" works too.
+
+
+## API
+
+### Tweensi.to()
+```javascript
+var tobj = {a:100, b:200, c:300};
+Tweensi.to(tobj, 1, {a:500, b:200, c:400});
+```
+
+
+
+
+
 
 
 
