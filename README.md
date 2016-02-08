@@ -1,4 +1,4 @@
-# tweensi
+\# tweensi
 Javascript light weight FPS based Tween Engine 
 
 I am a developer, working in the advertising world for a pretty long time.
@@ -20,7 +20,7 @@ How to use:
 ```javascript
 Tweensi.to($$("box"), 1, {autoAlpha:0, left:"500px", top:"300px", rotate:"360deg"});
 // or
-Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)", rotate:"random(360deg)"});
+var tw = Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)", rotate:"random(360deg)"});
 
 ```
 - Tweensi.to(object, time, propertyObject);
