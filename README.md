@@ -4,7 +4,7 @@ Javascript Light weight FPS based Tween Engine
 I am a developer, working in the advertising world for a pretty long time.
 Once Flash conquered interactive web, TweenLite was the most famous tool for animation and it was so light so it can be used even for 30kb or 50kb banners.
 
-But after Javascript version TweenLite & TweenMax was developed, the designer & developed was so happy that they don’t need to learn new syntax again, but the convenience has the price.
+But after Javascript version TweenLite & TweenMax was developed, many designers & developers were so happy that they don’t need to learn new syntax again, but the convenience has the price.
 
 Minified TweenLite is 22k, and it needs 5k easing pack to add nice movement.
 TweenMax is 108k, some CSS plug-ins are near 40k.
@@ -16,6 +16,6 @@ That is why I am trying to come up with this solution. Tweensi.
 
 ```javascript
 
-
+Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
 
 ```
