@@ -1,4 +1,5 @@
-\# tweensi
+\# tweensi.js
+
 Javascript light weight FPS based Tween Engine 
 
 I am a developer, working in the advertising world for a pretty long time.
