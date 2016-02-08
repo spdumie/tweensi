@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tweensi test page</title>
+
+<style>
+	body {background-color:lightgrey}
+	#contents {position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(240, 240, 240, 1)}
+	#shell {position:absolute;top:50%;left:50%;width:1px;height:1px;}
+	#gallery {position:absolute;top:-250px;left:-350px;width:700px;height:500px;border-radius:20px;background:rgba(255, 255, 255, 1)}
+	#arrowL {position:absolute;top:200px;left:-25px;width:50px;height:100px;cursor:pointer;border-radius:25px 4px 4px 25px;background:rgba(255, 0, 0, 1)}
+	#arrowR {position:absolute;top:200px;left:675px;width:50px;height:100px;cursor:pointer;border-radius:4px 25px 25px 4px;background:rgba(255, 0, 0, 1)}
+	#box {position:absolute;top:0px;left:0px;width:50px;height:50px;border-radius:5px;background:rgba(255, 0, 255, 1);opacity:0.8;
+		-webkit-transform:scale(1.5,1.5)translate(100px,200px);
+		transform:scale(1.5,1.5)translate(100px,200px);
+	}
+
+</style>
+
+<script src="Tweensi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+</head>
+<body>
+
+	<div id="contents">
+		<div id="shell">
+
+			<div id="gallery">
+
+				<div id="box"></div>
+				<div id="arrowL"></div>
+				<div id="arrowR"></div>
+				
+			</div>
+
+
+
+		</div>
+	</div>
+
+<script>
+
+
+function setPageInit() {
+	setBtns();
+}
+
+function setBtns() {
+	$$("box").style.cursor = "pointer";
+	$$("arrowR").addEventListener("click", ar_click);
+}
+
+function ar_click(e) {
+
+	console.log("========================== click");
+
+
+
+	//Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+	
+	
+	Tweensi.yoyo($$("box"), 1, {repeat:10, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+	/*
+	setTimeout(function(){
+		Tweensi.killTweensOf($$("box"));
+	}, 3000);
+	*/
+
+	//TweenMax.to($$("box"), 1, {yoyo:true, repeat:3, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+	//Tweensi.to($$("box"), 1, {yoyo:true, repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+	//Tweensi.yoyo($$("box"), 1, {repeat:0, repeatDalay:1, left:"400px", top:"200px", rotate:"180deg"});
+
+	/*
+	Tweensi.delayedCall(2, testCall, [1, 2, 3]);
+
+	Tweensi.killDelayedCallsTo(testCall);
+
+	function testCall(a, b, c) {
+		console.log("===== in testCall", a, b, c);
+	}*/
+
+	/*
+	Tweensi.to($$("box"), 2, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+
+	setTimeout(function(){
+		Tweensi.killTweensOf($$("box"), {left:true, top:true, rotate:true});
+	}, 1000);
+	*/
+
+	//Tweensi.from($$("box"), 1, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+
+
+	//Tweensi.to($$("box"), 1, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, skewX:"random(360deg)", skewY:"random(360deg)"});	
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, translateX:"random(300px)", translateY:"random(300px)", translateZ:"random(300px)"});	
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, scaleX:"random(2)", scaleY:"random(2)"});	
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, scale3d:"random(2,2,2)"});
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, rotateX:"random(360deg)", rotateY:"random(360deg)", rotateZ:"random(360deg)"});	
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, rotateX:"random(360deg)", rotateY:"random(360deg)", rotateZ:"random(360deg)"});	
+
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, scale:"random(2, 2)", translate:"random(500px, 300px)", rotate:"random(360deg)"});	
+	//Tweensi.to($$("box"), 1, {testv1:100, testv2:1000, left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});	
+
+	/*
+	Tweensi.to($$("box"), 2, {testv1:100, testv2:1000, rotate:"random(360deg)", scale:"random(2, 2)", translate:"random(500px, 300px)"});		
+
+	Tweensi.to($$("box"), 2, {delay:1, testv1:200, opacity:"random(1)"});
+	*/
+
+	/*
+	Tweensi.to($$("box"), 2, {testv1:100, testv2:1000, left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)"});		
+	Tweensi.to($$("box"), 2, {delay:1, testv1:200, opacity:"random(1)", rotate:"random(360deg)"});
+	*/
+	
+	/*
+	var testObj = {a:100, b:200, c:300, d:400};
+	
+	Tweensi.to(testObj, 1, {a:400, b:0});
+	*/
+
+
+}
+
+
+
+
+
+
+
+
+
+
+setPageInit();
+
+
+</script>
+</body>
+</html>
