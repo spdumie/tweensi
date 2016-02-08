@@ -28,7 +28,7 @@ Tweensi.to($$("box"), 1, {autoAlpha:0, left:"random(500px)", top:"random(300px)"
 - But you can assign one to control it later. (cancel etc.)
 - CSS3 properties can be used directly, such as rotate, scale, translate, etc.
 - “random(500px)” is equal to (500 * Math.random())+”px” for interesting test resolute.
-
+ 
 
 
 How to cancel:
