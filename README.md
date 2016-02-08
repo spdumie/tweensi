@@ -69,7 +69,7 @@ Supported CSS properties
 ```
 - CSS only has "left", "top", "width", "height", "opacity", since this is animation engine. other properties can be added here.
 - CSS3 Transform properties are almost all of them, using transform properties are recommended and it will start hardware acceleration on most of web browsers.
-- AutoAlpha is supported, it turns display "none" and "block", in the beginning or at the end of it.
+- AutoAlpha is supported, it turns display "none" or "block", in the beginning or at the end of it.
 - you can tween any object, simple as {a:100, b:200}, "a" or/and "b" property, even they are not registered as vKeys, as long as the values are number.
 - "delay" works too.
 
@@ -80,8 +80,15 @@ Supported CSS properties
 ```javascript
 var tobj = {a:100, b:200, c:300};
 Tweensi.to(tobj, 1, {a:500, b:200, c:400});
+//or
+Tweensi.to($$("box"), 1, {left:"100px", top:"200px", rotate:"random(360deg)"});
 ```
+- Any object & it's property can be tweened, as long as the value is number. 
+- First one tweens "a" from 100 to 500, "b" from 200 to 200, "c" from 300 to 400.
+- There should be a "box" div element to work $$("box")
+- the DIV element will be tweened from "current left" to "100px", "current top" to "200px", and rotate to random deg.
 
+### Tweensi.from()
 
 
 
