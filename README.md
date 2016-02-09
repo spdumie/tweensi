@@ -1,4 +1,4 @@
-\# tweensi.js
+# tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
@@ -129,9 +129,9 @@ Tweensi.from($$("box"), 1, {opacity:1, left:"500px", top:"300px", width:"200px",
 Tweensi.to($$("box"), 1, {yoyo:true, repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
 Tweensi.yoyo($$("box"), 1, {repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
 ```
-- Tweensi.to with property yoyo:trun and Tweensi.yoyo are the same. Tweesi.to with yoyo.turn will be passed to Tweesi.yoyo.
+- Tweensi.to with property yoyo:trun and Tweensi.yoyo are the same. Tweesi.to with yoyo:trun will be passed to Tweesi.yoyo.
 - repeat:0 will do nothing, need to be at least 1.
-- repeat:4, means 2 round trip.
+- repeat:4, means 2 round trip, odd number stops at target location, even number stops at original position.
 - repeat:-1 will do it infinitely. 
 - repeatDelay is optional
 
