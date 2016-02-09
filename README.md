@@ -1,4 +1,4 @@
-# tweensi.js
+# Tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
@@ -10,10 +10,26 @@ But after Javascript version TweenLite & TweenMax was developed, many designers 
 Minified TweenLite is 22k, and it needs 5k easing pack to add nice movement.
 TweenMax is 108k, some CSS plug-ins are near 40k.
 Gzip helps a bit when directly download it form the URL, but it adds some HTTP calls then.
-
-My dear friend Ian developed a CSS transition base animation engine, which is 6k, but the syntax is far from TweenLite that designers are so familiar with, and many features are also missing, like onUpdate, because it is based on CSS transition, some of the API tools are not easy to be added.
-
 That is why I am trying to come up with this solution. Tweensi, 12k with all easing included.
+
+My dear friend Ian developed a CSS transition base animation engine, which is 6k, but the syntax is far from TweenLite that designers are so familiar with, and many features are also missing, like onUpdate, because it is based on CSS transition, some of the API tools are not easy to be added. Thus this new tween engine must have FPS based calculation.
+
+
+Characteristics of Tweensi
+--------------
+- Since this should be animation controls, many of css properties will not be included, but CSS3 Transforms must be included without plugin addition.
+- Once transform changes happened to an DOM element, all CSS3 transform properties are transferred to "Matrix" or "Matrix3D". It is almost impossible to retrieve the original values from Matrix or Matirx3D. So all CSS transform values such as "rotate", "scale", "translate", "skew" are stored at window.TweensiReg, as the global value, and calculated from there.
+- Multiple Tweensi can be applied to one object.
+```javascript
+
+Tweensi.to($$("box"), 2, {left:"500px", top:"300px", rotate:"360deg"});
+Tweensi.to($$("box"), 1, {delay:1, width:"200px", height:"200px", rotate:"90deg"});
+
+```
+- the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will be calculated & tweened. But the rotate is overlaid, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
+
+
+
 
 How to use:
 --------------
