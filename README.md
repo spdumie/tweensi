@@ -1,4 +1,4 @@
-# Tweensi.js
+\# Tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
@@ -99,6 +99,7 @@ Events supported
 Tweensi.to($$("box"), 2, {testv1:100, testv2:1000, onStart:test1, onStartParams:[“p1”, “p2”], onComplete:test2, onUpdate:test3, onRepeat:test4});	
 ```
 - onStart needs to have callback function name, onStartParmas needs array of parameters.
+- onEachEvent has onEachEventParams for parameter inputs.
 - onRepeat is only calls on Tween.yoyo, when one trip is finished.
 
 
