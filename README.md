@@ -26,7 +26,7 @@ Tweensi.to($$("box"), 2, {left:"500px", top:"300px", rotate:"360deg"});
 Tweensi.to($$("box"), 1, {delay:1, width:"200px", height:"200px", rotate:"90deg"});
 
 ```
-- the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will be calculated & tweened. But the rotate is overlaid, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
+- the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will be calculated & tweened. But the "rotate" is overlaid, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
 
 
 
