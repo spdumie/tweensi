@@ -1,4 +1,4 @@
-# tweensi.js
+# Tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
