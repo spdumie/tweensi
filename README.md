@@ -92,6 +92,15 @@ Supported CSS properties
 - you can tween any object, simple as {a:100, b:200}, "a" or/and "b" property, even they are not registered as vKeys, as long as the values are number.
 - "delay" works too.
 
+Events supported
+--------------
+```javascript
+
+Tweensi.to($$("box"), 2, {testv1:100, testv2:1000, onStart:test1, onStartParams:[“p1”, “p2”], onComplete:test2, onUpdate:test3, onRepeat:test4});	
+```
+- onStart needs to have callback function name, onStartParmas needs array of parameters.
+- onRepeat is only calls on Tween.yoyo, when one trip is finished.
+
 
 ## API
 
