@@ -1,4 +1,4 @@
-# tweensi.js
+\# tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
@@ -27,6 +27,10 @@ Tweensi.to($$("box"), 1, {delay:1, width:"200px", height:"200px", rotate:"90deg"
 
 ```
 - the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will additionally be calculated & tweened. But the "rotate" is overlapped, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
+
+Known Bugs
+--------------
+- if you set transform scale(1.5, 1.5) in the CSS style sheet, and later trying to tween it as single value, such as scale(2), it will do nothing, because it ended up tweening scale (1.5, 1.5) to scale (2, NaN).
 
 
 How to use:
