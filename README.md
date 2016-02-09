@@ -1,4 +1,4 @@
-# Tweensi.js
+# tweensi.js
 
 Javascript light weight FPS based Tween Engine 
 
@@ -10,7 +10,7 @@ But after Javascript version TweenLite & TweenMax was developed, many designers 
 Minified TweenLite is 22k, and it needs 5k easing pack to add nice movement.
 TweenMax is 108k, some CSS plug-ins are near 40k.
 Gzip helps a bit when directly download it form the URL, but it adds some HTTP calls then.
-That is why I am trying to come up with this solution. Tweensi, 12k with all easing included.
+That is why I am trying to come up with this solution. Tweensi is12kb, with all easing included.
 
 My dear friend Ian developed a CSS transition base animation engine, which is 6k, but the syntax is far from TweenLite that designers are so familiar with, and many features are also missing, like onUpdate, because it is based on CSS transition, some of the API tools are not easy to be added. Thus this new tween engine must have FPS based calculation.
 
@@ -26,9 +26,7 @@ Tweensi.to($$("box"), 2, {left:"500px", top:"300px", rotate:"360deg"});
 Tweensi.to($$("box"), 1, {delay:1, width:"200px", height:"200px", rotate:"90deg"});
 
 ```
-- the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will be calculated & tweened. But the "rotate" is overlaid, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
-
-
+- the second Tweensi starts after 1 sec of first Tweensi. but "width" & "height" are not interfered with first Tweensi, they will additionally be calculated & tweened. But the "rotate" is overlapped, first one will be cancelled, and second one "90deg" will be calculated from the current rotational position.
 
 
 How to use:
@@ -93,6 +91,14 @@ Supported CSS properties
 
 ## API
 
+### $$("idName")
+```javascript
+function $$(tname) {
+	var tobj = document.getElementById(tname);
+	return tobj;
+}
+```
+
 ### Tweensi.to()
 ```javascript
 var tobj = {a:100, b:200, c:300};
@@ -106,10 +112,54 @@ Tweensi.to($$("box"), 1, {left:"100px", top:"200px", rotate:"random(360deg)"});
 - the DIV element will be tweened from "current left" to "100px", "current top" to "200px", and rotate to random deg.
 
 ### Tweensi.from()
+```javascript
+Tweensi.from($$("box"), 1, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+// or try
+Tweensi.from($$("box"), 1, {opacity:1, left:"500px", top:"300px", width:"200px", height:"200px", rotate:"360deg"});
+```
+- First Tweensi moves the "box" to some random place, and starts moving it from there.
+- Second Tweensi's opacity is number, please notice it.
 
+### Tweensi.yoyo()
+```javascript
+Tweensi.to($$("box"), 1, {yoyo:true, repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+Tweensi.yoyo($$("box"), 1, {repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+```
+- Tweensi.to with property yoyo:trun and Tweensi.yoyo are the same. Tweesi.to with yoyo.turn will be passed to Tweesi.yoyo.
+- repeat:0 will do nothing, need to be at least 1.
+- repeat:4, means 2 round trip.
+- repeat:-1 will do it infinitely. 
+- repeatDelay is optional
 
+### Tweensi.set()
+```javascript
+Tweensi.from($$("box"), 0, {left:"400px", top:"200px", rotate:"180deg"});
+Tweensi.set($$("box"), {left:"400px", top:"200px", rotate:"180deg"});
+```
+- Tweensi.to or Tweensi.from with animation duration 0 are equal to Tweensi.set
 
+### Tweensi.delayedCall()
+```javascript
+Tweensi.delayedCall(2, testCall, ["param1", "param2"]);
+//or
+Tweensi.delayedCall(2, testCall);
+```
+- after 2 seconds, function testCall() will be called.
+- Params are optional
 
+### Tweensi.killDelayedCallsTo()
+```javascript
+Tweensi.delayedCallsTo(testCall);
+```
+- This will cancel the delayedCall searched by function name
 
+### Tweensi.killTweensOf()
+```javascript
+Tweensi.killTweensOf($$("box"));
+//or
+Tweensi.killTweensOf($$("box"), {left:true, top:true, rotate:true});
+```
+- First Tweensi just kill all tween and unregister it form the Tweensi Register.
+- If it has properties:true, it will kill only that properties, others go to finish.  
 
 
