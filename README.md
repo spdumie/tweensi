@@ -95,6 +95,9 @@ Supported CSS properties
 Easing List
 --------------
 ```javascript
+
+Tweensi.to($$("box"), 1, {ease:"easeOutBack", left:"100px", top:"200px", rotate:"random(360deg)"});
+
 linear
 easeInQuad
 easeOutQuad
