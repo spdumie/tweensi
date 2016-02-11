@@ -92,6 +92,45 @@ Supported CSS properties
 - you can tween any object, simple as {a:100, b:200}, "a" or/and "b" property, even they are not registered as vKeys, as long as the values are number.
 - "delay" works too.
 
+Easing List
+--------------
+```javascript
+linear
+easeInQuad
+easeOutQuad
+easeInOutQuad
+easeInCubic
+easeOutCubic
+easeInOutCubic
+easeInQuart
+easeOutQuart
+easeInOutQuart
+easeInQuint
+easeOutQuint
+easeInOutQuint
+easeInSine
+easeOutSine
+easeInOutSine
+easeInExpo
+easeOutExpo
+easeInOutExpo
+easeInCirc
+easeOutCirc
+easeInOutCirc
+easeInElastic
+easeOutElastic
+easeInOutElastic
+easeInBack
+easeOutBack
+easeInOutBack
+easeInBounce
+easeOutBounce
+easeOutBounce
+easeInOutBounce
+easeInBounce
+easeOutBounce
+````
+
 Events supported
 --------------
 ```javascript
@@ -118,7 +157,7 @@ function $$(tname) {
 var tobj = {a:100, b:200, c:300};
 Tweensi.to(tobj, 1, {a:500, b:200, c:400});
 //or
-Tweensi.to($$("box"), 1, {left:"100px", top:"200px", rotate:"random(360deg)"});
+Tweensi.to($$("box"), 1, {left:"100px", top:"200px", ease:”easeOutBack”, rotate:"random(360deg)"});
 ```
 - Any object & it's property can be tweened, as long as the value is number. 
 - First one tweens "a" from 100 to 500, "b" from 200 to 200, "c" from 300 to 400.
@@ -129,7 +168,7 @@ Tweensi.to($$("box"), 1, {left:"100px", top:"200px", rotate:"random(360deg)"});
 ```javascript
 Tweensi.from($$("box"), 1, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
 // or try
-Tweensi.from($$("box"), 1, {opacity:1, left:"500px", top:"300px", width:"200px", height:"200px", rotate:"360deg"});
+Tweensi.from($$("box"), 1, {ease:”easeOutElastic”, left:"500px", top:"300px", width:"200px", height:"200px", rotate:"360deg"});
 ```
 - First Tweensi moves the "box" to some random place, and starts moving it from there.
 - Second Tweensi's opacity is number, please notice it.
