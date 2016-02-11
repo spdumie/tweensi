@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tweensi.js examples</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<style>
+.box{position:absolute;width:60px;height:60px;left:0px;top:0px;background:rgb(250,130,0);border-radius:8px};
+
+</style>
+<script src="Tweensi.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tweensi</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#twto">.to()</a></li>
+            <li><a href="#twfrom">.from()</a></li>
+            <li><a href="#twyoyo">.yoyo()</a></li>
+            <li><a href="#twset">.set()</a></li>
+            <li><a href="#twdelay">.delayedCall()</a></li>
+            <li><a href="#twkilldelay">.killDelayedCallsTo()</a></li>            
+            <li><a href="#twkill">.killTweensOf()</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div id="twto" class="jumbotron">
+        <h1>Tweensi.to()</h1>
+        <p>
+          <samp><textarea id="code1" class="form-control custom-control" rows="4" style="resize:none">Tweensi.to($$("box1"), 2, {testv1:100, testv2:1000, left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)"});
+Tweensi.to($$("box1"), 2, {delay:1, testv1:200, opacity:"random(1)", rotate:"random(360deg)"});</textarea></samp>
+
+        </p>
+        <div class="panel panel-body" style="position:relative;width:100%;height:300px">
+          <div id="box1" class="box"></div>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code1');" role="button">Animate! &raquo;</a>
+        </p>
+      </div>
+
+       <div id="twfrom" class="jumbotron">
+        <h1>Tweensi.from()</h1>
+        <p>
+          <samp><textarea id="code2" class="form-control custom-control" rows="2" style="resize:none">Tweensi.from($$("box2"), 1, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});</textarea></samp>
+
+        </p>
+        <div class="panel panel-body" style="position:relative;width:100%;height:300px">
+          <div id="box2" class="box"></div>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code2');" role="button">Animate! &raquo;</a>
+        </p>
+      </div>        
+
+       <div id="twyoyo" class="jumbotron">
+        <h1>Tweensi.yoyo()</h1>
+        <p>
+          <samp><textarea id="code3" class="form-control custom-control" rows="4" style="resize:none">Tweensi.yoyo($$("box3"), 1, {repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});
+//or Tweensi.to($$("box3"), 1, {yoyo:true, repeat:4, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});</textarea></samp>
+
+        </p>
+        <div class="panel panel-body" style="position:relative;width:100%;height:300px">
+          <div id="box3" class="box"></div>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code3');" role="button">Animate! &raquo;</a>
+        </p>
+      </div>  
+
+       <div id="twset" class="jumbotron">
+        <h1>Tweensi.set()</h1>
+        <p>
+          <samp><textarea id="code4" class="form-control custom-control" rows="4" style="resize:none">Tweensi.set($$("box4"), {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+//or Tweensi.to($$("box4"), 0, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});</textarea></samp>
+
+        </p>
+        <div class="panel panel-body" style="position:relative;width:100%;height:300px">
+          <div id="box4" class="box"></div>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code4');" role="button">Animate! &raquo;</a>
+        </p>
+      </div>  
+
+
+       <div id="twdelay" class="jumbotron">
+        <h1>Tweensi.delayedCall()</h1>
+        <p>
+          <samp><textarea id="code5" class="form-control custom-control" rows="4" style="resize:none">Tweensi.delayedCall(2, testCall, [1, 2, 3]);
+function testCall(a, b, c) {
+  console.log("===== in testCall", a, b, c);
+}</textarea></samp>
+        </p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code5');" role="button">Go! &raquo;</a>
+        </p>
+      </div> 
+
+       <div id="twkilldelay" class="jumbotron">
+        <h1>Tweensi.killDelayedCallsTo()</h1>
+        <p>
+          <samp><textarea id="code6" class="form-control custom-control" rows="5" style="resize:none">Tweensi.delayedCall(2, testCall, [1, 2, 3]);
+Tweensi.killDelayedCallsTo(testCall);
+function testCall(a, b, c) {
+  console.log("===== in testCall", a, b, c);
+}</textarea></samp>
+        </p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code6');" role="button">Go! &raquo;</a>
+        </p>
+      </div>  
+
+
+       <div id="twkill" class="jumbotron">
+        <h1>Tweensi.killTweensOf()</h1>
+        <p>
+          <samp><textarea id="code7" class="form-control custom-control" rows="12" style="resize:none">Tweensi.to($$("box7"), 2, {opacity:"random(1)", left:"random(500px)", top:"random(300px)", width:"random(200px)", height:"random(200px)", rotate:"random(360deg)"});
+setTimeout(function(){
+  Tweensi.killTweensOf($$("box7"), {left:true, top:true, rotate:true});
+}, 1000);
+
+/* or 
+Tweensi.yoyo($$("box7"), 1, {repeat:10, repeatDelay:1, left:"400px", top:"200px", rotate:"180deg"});  
+setTimeout(function(){
+  Tweensi.killTweensOf($$("box7"));
+}, 3000);
+*/</textarea></samp>
+
+        </p>
+        <div class="panel panel-body" style="position:relative;width:100%;height:300px">
+          <div id="box7" class="box"></div>
+        </div>
+        <p>
+          <a class="btn btn-lg btn-primary" href="javascript:stToJs('code7');" role="button">Animate! &raquo;</a>
+        </p>
+      </div>  
+
+
+    </div> <!-- /container -->
+
+
+
+
+
+    <script>
+      function stToJs(tid) {
+        //console.log("==== stToJs", $$(tid).value);
+        var script = document.createElement("script");
+        script.innerHTML = $$(tid).value;
+        document.body.appendChild(script);
+      }
+
+
+
+    </script>
+
+
+  </body>
+</html>
